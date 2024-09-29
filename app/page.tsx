@@ -26,7 +26,7 @@ export default function Home() {
             alt="Kex Image"
             width={300}
             height={300}
-            // style={{ transform: 'rotate(90deg)' }}
+            style={{ transform: 'rotate(0deg)' }}
             className="KexImage"
           />
         </div>
