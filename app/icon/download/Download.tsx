@@ -5,6 +5,7 @@ const DownloadIcons = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
+    color="white"
     fill="none"
     stroke="currentColor"
     strokeLinecap="round"

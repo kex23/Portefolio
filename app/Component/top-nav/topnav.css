@@ -1,21 +1,51 @@
-.contenuNav{
+
+.contenuNav {
     width: 100%;
     overflow: hidden;
-    position: fixed; /* Pour que la navigation reste en haut */
-    top: 0; /* Fixe en haut de la page */
-    background-color: rgba(216, 216, 216, 0.9); /* Fond semi-transparent */
-    z-index: 1000; /* Pour s'assurer que c'est au-dessus d'autres contenus */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 1.5); /* Ombre légère */
-}
-
-.ulNav{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.liNav1{
+    background: rgba(255, 255, 255, 0); /* Couleur de fond transparent */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .GrosTitres {
+    width: 50%;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .NOM {
+    color: white;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .ulNav {
+    display: flex;
+    color: var(--first-white);
+    justify-content: space-around;
+    width: 30%;
+  }
+  
+  .liNav1 {
     font-size: 20px;
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    color: var(--first-white);
+  }
+  
+  .liNav {
+    color: rgb(255, 255, 255);
+    transition: color 0.3s;
+  }
+  
+  .liNav.active {
+    color: var(--main-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--main-color);
+  }
