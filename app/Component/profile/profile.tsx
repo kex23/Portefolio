@@ -13,7 +13,7 @@ export default function Profil() {
           width={300}
           height={300}
           className="KexImage"
-          style={{ transform: 'rotate(90deg)' }}
+          
         />
         <div className="icon icon1"><FaLightbulb /></div>
         <div className="icon icon2"><FaComments /></div>
