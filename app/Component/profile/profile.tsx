@@ -10,8 +10,8 @@ export default function Profil() {
         <Image 
           src="/image/Kex.JPEG" 
           alt="Kex Image"
-          width={200}
-          height={200}
+          width={100}
+          height={100}
           className="KexImage"
           
         />
