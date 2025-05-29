@@ -135,6 +135,11 @@ export default function Home() {
               title: 'Extract Données',
               desc: 'Liaison Excel/TXT, filtrage et export PDF automatique.'
             },
+            {
+              src: './image/GestionDonne.png',
+              title: 'Gestion Données',
+              desc: 'Liaison Excel/TXT, manipulation de données, base de données, filtrage et export automatique en CSV ou Excel.' 
+            },
           ].map((project, index) => (
             <div key={index} className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition transform hover:-translate-y-1">
               <img src={project.src} alt={project.title} className="rounded-xl mb-4 w-full h-48 object-cover" />
