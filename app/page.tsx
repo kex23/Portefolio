@@ -55,7 +55,7 @@ export default function Home() {
                 <GitIcons /> GitHub
               </button>
               <button
-                onClick={() => window.open('https://linkedin.com/in/kiady-rabenjatovo-441344305', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/kiady-nekena-rabenjatovo-441344305/', '_blank')}
                 className="bg-blue-800 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-blue-900 transition duration-300"
               >
                 <LinkdinIcons /> LinkedIn
