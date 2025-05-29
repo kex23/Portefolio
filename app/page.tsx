@@ -138,7 +138,7 @@ export default function Home() {
             {
               src: './image/GestionDonne.png',
               title: 'Gestion Données',
-              desc: 'Liaison Excel/TXT, manipulation de données, base de données, filtrage et export automatique en CSV ou Excel.' 
+              desc: 'Liaison Excel, manipulation de données, base de données, export automatique en CSV ou Excel.' 
             },
           ].map((project, index) => (
             <div key={index} className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition transform hover:-translate-y-1">
