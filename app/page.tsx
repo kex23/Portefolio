@@ -43,7 +43,7 @@ export default function Home() {
                 <MailsIcons /> Mail
               </button>
               <button
-                onClick={() => window.open('https://wa.me/+2610348570625', '_blank')}
+                onClick={() => window.open('https://wa.me/+2610389029847', '_blank')}
                 className="bg-green-600 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-green-700 transition duration-300"
               >
                 <FaWhatsapp /> WhatsApp
