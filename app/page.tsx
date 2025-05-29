@@ -15,6 +15,7 @@ import PythonIcons from "./icon/python/python";
 import MySqlIcons from "./icon/Mysql/MySql";
 import TypeScipteIcons from "./icon/TypeScipte/TypeScripte";
 import FireBaseIcons from "./icon/firebases/firebases";
+import JavaIcons from "./icon/Java/Java";
 
 export default function Home() {
   return (
@@ -85,6 +86,7 @@ export default function Home() {
             <p className="flex items-center justify-center gap-2 mb-2"><NodeJs width={40}/> NodeJS</p>
             <p className="flex items-center justify-center gap-2 mb-2"><PythonIcons width={40}/> Python</p>
             <p className="flex items-center justify-center gap-2"><MySqlIcons width={40}/> MySQL</p>
+            <p className="flex items-center justify-center gap-2"><JavaIcons width={40}/> JAVA</p>
           </div>
           <div className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition">
             <h3 className="text-xl font-semibold mb-4 text-blue-300">Autre</h3>
