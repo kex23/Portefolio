@@ -1,12 +1,15 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import Topnav from "./Component/top-nav/topnav";
 import Image from "next/image";
+
 import MailsIcons from "./icon/mail/Mail";
 import { FaWhatsapp } from "react-icons/fa";
 import GitIcons from "./icon/git/Git";
 import LinkdinIcons from "./icon/linkdin/Linkdin";
 import DownloadIcons from "./icon/download/Download";
+
 import ReactIcons from "./icon/react/react";
 import HTMLIcons from "./icon/Html/Html";
 import CssIcons from "./icon/Css/Css";
@@ -18,137 +21,259 @@ import FireBaseIcons from "./icon/firebases/firebases";
 import JavaIcons from "./icon/Java/Java";
 
 export default function Home() {
+  const [active, setActive] = useState("profil");
+
+  useEffect(() => {
+    const sections = ["profil", "competences", "projets"];
+
+    const onScroll = () => {
+      let current = "profil";
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 200) current = id;
+      });
+
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white min-h-screen">
-      <Topnav />
+    <div className="bg-[#050712] text-white min-h-screen">
 
-      <div id="profil" className="profil px-6 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
-          <img src="./image/Kex.JPEG" alt="Profil Image" className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-blue-500 shadow-xl animate-fade-in-up" />
-          <div>
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
-              Je suis Full-Stack <br /> JavaScript Developer
-            </h1>
-            <p className="text-gray-300 text-lg mb-8 md:px-0 animate-fade-in-up delay-150">
-              Développeur passionné et motivé, ravi d'accroître mes compétences en tant que développeur afin d'offrir des solutions innovantes. <br />Actuellement en troisième année à l'ISPM.
-            </p>
-
-            <h2 className="text-3xl font-bold text-blue-400 mb-6 animate-fade-in-up delay-300">Contactez-moi</h2>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 justify-items-center animate-fade-in-up delay-500">
-              <button
-                onClick={() => window.location.href = "mailto:rabenjatovokex@gmail.com?subject=Bonjour&body=Je voudrais discuter"}
-                className="bg-blue-600 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-blue-700 transition duration-300"
-              >
-                <MailsIcons /> Mail
-              </button>
-              <button
-                onClick={() => window.open('https://wa.me/+2610389029847', '_blank')}
-                className="bg-green-600 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-green-700 transition duration-300"
-              >
-                <FaWhatsapp /> WhatsApp
-              </button>
-              <button
-                onClick={() => window.open('https://github.com/kex23', '_blank')}
-                className="bg-gray-700 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-gray-600 transition duration-300"
-              >
-                <GitIcons /> GitHub
-              </button>
-              <button
-                onClick={() => window.open('https://www.linkedin.com/in/kiady-nekena-rabenjatovo-441344305/', '_blank')}
-                className="bg-blue-800 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-blue-900 transition duration-300"
-              >
-                <LinkdinIcons /> LinkedIn
-              </button>
-              <button
-                onClick={() => window.open('./PROFIL PERSONNEL cv kex.pdf', '_blank')}
-                className="bg-yellow-400 text-black px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-yellow-500 transition duration-300 col-span-2 md:col-span-1"
-              >
-                <DownloadIcons /> Télécharger CV
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div id="competences" className="px-6 py-20 bg-gradient-to-br from-blue-900 via-gray-900 to-black text-white">
-        <h2 className="text-4xl font-bold mb-12 text-center text-blue-400 animate-fade-in-up">Compétences</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-center animate-fade-in-up delay-200">
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition">
-            <h3 className="text-xl font-semibold mb-4 text-blue-300">Frontend</h3>
-            <p className="flex items-center justify-center gap-2 mb-2"><ReactIcons width={40}/> React</p>
-            <p className="flex items-center justify-center gap-2 mb-2"><HTMLIcons width={40}/> HTML</p>
-            <p className="flex items-center justify-center gap-2"><CssIcons width={40}/> CSS</p>
-          </div>
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition">
-            <h3 className="text-xl font-semibold mb-4 text-blue-300">Backend</h3>
-            <p className="flex items-center justify-center gap-2 mb-2"><NodeJs width={40}/> NodeJS</p>
-            <p className="flex items-center justify-center gap-2 mb-2"><PythonIcons width={40}/> Python</p>
-            <p className="flex items-center justify-center gap-2"><MySqlIcons width={40}/> MySQL</p>
-            <p className="flex items-center justify-center gap-2"><JavaIcons width={40}/> JAVA</p>
-          </div>
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition">
-            <h3 className="text-xl font-semibold mb-4 text-blue-300">Autre</h3>
-            <p className="flex items-center justify-center gap-2 mb-2"><GitIcons width={40}/> Git</p>
-            <p className="flex items-center justify-center gap-2 mb-2"><TypeScipteIcons width={40}/> TypeScript</p>
-            <p className="flex items-center justify-center gap-2"><FireBaseIcons width={40}/> Firebase</p>
-          </div>
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition">
-            <h3 className="text-xl font-semibold mb-4 text-blue-300">Mobile</h3>
-            <p className="flex items-center justify-center gap-2"><ReactIcons width={40}/> React Native</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="projets" className="px-6 py-20 bg-gradient-to-br from-black via-gray-900 to-blue-900 text-white">
-        <h2 className="text-4xl font-bold mb-12 text-center text-blue-400 animate-fade-in-up">Mes Projets</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 animate-fade-in-up delay-200">
-          {[
-            {
-              src: './image/clinique.png',
-              title: 'Clinique Management',
-              desc: 'Logiciel pour la gestion de stock de médicaments et dossiers patients.'
-            },
-            {
-              src: './image/shopticket.png',
-              title: 'Shop Ticket',
-              desc: 'Publication d\'\u00e9vénements avec billetterie en ligne.'
-            },
-            {
-              src: './image/Mikozy.jpg',
-              title: 'Mikozy',
-              desc: 'Application mobile pour partager messages et photos.'
-            },
-            {
-              src: './image/beer-Pong.jpg',
-              title: 'Beer Pong',
-              desc: 'Jeu Windows basé sur le lancer de balles dans des gobelets.'
-            },
-            {
-              src: './image/d5c797ea-5541-47d5-9e97-4d7497c57232.jpg',
-              title: 'Smart Assistant',
-              desc: 'Contrôle domotique : lumière et portes via mobile app.'
-            },
-            {
-              src: './image/5538282_2867971.jpg',
-              title: 'Extract Données',
-              desc: 'Liaison Excel/TXT, filtrage et export PDF automatique.'
-            },
-            {
-              src: './image/GestionDonne.png',
-              title: 'Gestion Données',
-              desc: 'Liaison Excel, manipulation de données, base de données, export automatique en CSV ou Excel.' 
-            },
-          ].map((project, index) => (
-            <div key={index} className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/50 transition transform hover:-translate-y-1">
-              <img src={project.src} alt={project.title} className="rounded-xl mb-4 w-full h-48 object-cover" />
-              <h3 className="text-xl font-bold mb-2 text-blue-300">{project.title}</h3>
-              <p className="text-gray-300 text-sm">{project.desc}</p>
-            </div>
+      {/* NAV CLEAN */}
+      <div className="fixed top-0 w-full flex justify-center z-50">
+        <div className="mt-4 flex gap-2 rounded-2xl bg-white/5 backdrop-blur border border-white/10 px-3 py-2">
+          {["profil", "competences", "projets"].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollTo(item)}
+              className={`px-5 py-2 rounded-xl text-sm transition ${
+                active === item
+                  ? "bg-cyan-500 text-black"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              {item}
+            </button>
           ))}
         </div>
       </div>
-      </div>
+
+      {/* HERO ULTRA CLEAN */}
+      <section
+        id="profil"
+        className="min-h-screen flex items-center px-6 pt-28"
+      >
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+          {/* TEXT */}
+          <div>
+            <p className="text-cyan-400 text-sm mb-4">
+                RABENJATOVO Kiady Nekena
+            </p>
+
+            <h1 className="text-5xl md:text-6xl font-semibold leading-tight">
+              Full-Stack 
+              <span className="block text-cyan-400">
+                JavaScript
+              </span>
+            </h1>
+
+            <p className="text-white/60 mt-6 leading-relaxed">
+              Développeur passionné spécialisé en React, Next.js, Node.js et
+              Python. J’aime créer des interfaces propres et modernes.
+            </p>
+
+            {/* BUTTONS */}
+            <div className="flex flex-wrap gap-3 mt-8">
+              <button
+                onClick={() =>
+                  (window.location.href =
+                    "mailto:rabenjatovokex@gmail.com?subject=Bonjour&body=Je voudrais discuter")
+                }
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition"
+              >
+                <MailsIcons /> Mail
+              </button>
+
+              <button
+                onClick={() =>
+                  window.open("https://wa.me/261389029847", "_blank")
+                }
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20"
+              >
+                <FaWhatsapp /> WhatsApp
+              </button>
+
+              <button
+                onClick={() => window.open("https://github.com/kex23", "_blank")}
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20"
+              >
+                <GitIcons /> GitHub
+              </button>
+
+              <button
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/kiady-nekena-rabenjatovo-441344305/",
+                    "_blank"
+                  )
+                }
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20"
+              >
+                <LinkdinIcons /> LinkedIn
+              </button>
+
+              <button
+                onClick={() =>
+                  window.open("./PROFIL PERSONNEL cv kex.pdf", "_blank")
+                }
+                className="px-5 py-3 rounded-xl bg-yellow-400 text-black"
+              >
+                <DownloadIcons /> CV
+              </button>
+            </div>
+          </div>
+
+          {/* IMAGE */}
+          <div className="flex justify-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-cyan-500/20 blur-3xl rounded-full" />
+              <Image
+                src="/image/Kex.JPEG"
+                alt="profile"
+                width={380}
+                height={380}
+                className="rounded-full border border-white/10 relative"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPETENCES CLEAN */}
+      <section id="competences" className="px-6 py-24">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-semibold text-center mb-12">
+            Compétences
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Frontend",
+                items: [
+                  { icon: <ReactIcons width={28} />, name: "React" },
+                  { icon: <HTMLIcons width={28} />, name: "HTML" },
+                  { icon: <CssIcons width={28} />, name: "CSS" },
+                ],
+              },
+              {
+                title: "Backend",
+                items: [
+                  { icon: <NodeJs width={28} />, name: "NodeJS" },
+                  { icon: <PythonIcons width={28} />, name: "Python" },
+                  { icon: <MySqlIcons width={28} />, name: "MySQL" },
+                  { icon: <JavaIcons width={28} />, name: "Java" },
+                ],
+              },
+              {
+                title: "Tools",
+                items: [
+                  { icon: <TypeScipteIcons width={28} />, name: "TypeScript" },
+                  { icon: <FireBaseIcons width={28} />, name: "Firebase" },
+                ],
+              },
+            ].map((box, i) => (
+              <div
+                key={i}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6"
+              >
+                <h3 className="text-cyan-400 mb-6">{box.title}</h3>
+
+                <div className="space-y-4 text-white/70">
+                  {box.items.map((item, j) => (
+                    <div key={j} className="flex items-center gap-3">
+                      {item.icon}
+                      {item.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS CLEAN GRID */}
+      <section id="projets" className="px-6 py-24">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-semibold text-center mb-12">
+            Projets
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                src: "/image/clinique.png",
+                title: "Clinique Management",
+                desc: "Gestion médicale",
+              },
+              {
+                src: "/image/shopticket.png",
+                title: "Shop Ticket",
+                desc: "Billetterie",
+              },
+              {
+                src: "/image/Mikozy.jpg",
+                title: "Mikozy",
+                desc: "Chat app",
+              },
+              {
+                src: "/image/beer-Pong.jpg",
+                title: "Beer Pong",
+                desc: "Game Windows",
+              },
+              {
+                src: "/image/d5c797ea-5541-47d5-9e97-4d7497c57232.jpg",
+                title: "Smart Assistant",
+                desc: "Domotique",
+              },
+              {
+                src: "/image/5538282_2867971.jpg",
+                title: "Extract Data",
+                desc: "Automation",
+              },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition"
+              >
+                <img
+                  src={p.src}
+                  className="h-48 w-full object-cover group-hover:scale-105 transition"
+                />
+
+                <div className="p-4">
+                  <h3 className="text-cyan-400">{p.title}</h3>
+                  <p className="text-white/50 text-sm">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
