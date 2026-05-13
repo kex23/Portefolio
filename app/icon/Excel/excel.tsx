@@ -1,5 +1,6 @@
 import * as React from "react"
-const Excelicons = (props) => (
+import { SVGProps } from "react"
+const Excelicons = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
