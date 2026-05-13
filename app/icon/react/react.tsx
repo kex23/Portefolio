@@ -14,7 +14,7 @@ const ReactIcons = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="white"
+      fill="#fff"
       d="M-1088-64H192v800h-1280z"
       style={{
         fill: "none",

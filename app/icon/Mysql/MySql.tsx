@@ -3,7 +3,7 @@ import { SVGProps } from "react"
 const MySqlIcons = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="#black"
+    fill="#fff"
     stroke="#black"
     viewBox="0 0 32 32"
     {...props}
