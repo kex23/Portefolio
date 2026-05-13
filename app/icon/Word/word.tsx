@@ -1,0 +1,18 @@
+import * as React from "react"
+
+const Wordicons = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path
+      fill="#fff"
+      fillRule="evenodd"
+      d="M10 1a1 1 0 0 0-.707.293l-6 6A1 1 0 0 0 3 8v12a3 3 0 0 0 3 3h4a1 1 0 1 0 0-2H6a1 1 0 0 1-1-1V9h5a1 1 0 0 0 1-1V3h7a1 1 0 0 1 1 1v5a1 1 0 1 0 2 0V4a3 3 0 0 0-3-3h-8ZM9 7H6.414L9 4.414V7Zm3.952 5.694a1 1 0 1 0-1.904.612l2.25 7a1 1 0 0 0 1.904 0l1.298-4.038 1.298 4.038a1 1 0 0 0 1.904 0l2.25-7a1 1 0 1 0-1.904-.612l-1.298 4.038-1.298-4.038a1 1 0 0 0-1.904 0l-1.298 4.038-1.298-4.038Z"
+      clipRule="evenodd"
+    />
+  </svg>
+)
+export default Wordicons

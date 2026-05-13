@@ -19,6 +19,8 @@ import MySqlIcons from "./icon/Mysql/MySql";
 import TypeScipteIcons from "./icon/TypeScipte/TypeScripte";
 import FireBaseIcons from "./icon/firebases/firebases";
 import JavaIcons from "./icon/Java/Java";
+import Wordicons from "./icon/Word/word";
+import Excelicons from "./icon/Excel/excel";
 
 export default function Home() {
   const [active, setActive] = useState("profil");
@@ -193,6 +195,13 @@ export default function Home() {
                 items: [
                   { icon: <TypeScipteIcons width={28} />, name: "TypeScript" },
                   { icon: <FireBaseIcons width={28} />, name: "Firebase" },
+                ],
+              },
+              {
+                title: "Bureautique",
+                items: [
+                  { icon: <Wordicons width={28} />, name: "Word" },
+                  { icon: <Excelicons width={28} />, name: "Excel" },
                 ],
               },
             ].map((box, i) => (
